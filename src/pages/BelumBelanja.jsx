@@ -7,7 +7,7 @@ const BelumBelanja = () => {
     <>
       <div className="flex flex-col gap-4">
         <p className="text-center">Kamu belum belanja</p>
-        <Button onClick={() => navigate("/")} style="bg-green-600 text-white">Gas Belanja Sekarang</Button>
+        <Button onClick={() => navigate("/")} style="bg-green-600 text-white">Yuk, Belanja Sekarang</Button>
       </div>
     </>
   );
