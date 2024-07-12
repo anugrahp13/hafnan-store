@@ -144,14 +144,6 @@ const useStore = create(
             }
         },
 
-        // filterProducts: (category) => {
-        //   const { products } = useStore.getState();
-        //   const result = products.filter((p) => {
-        //     return p.category === category;
-        //   });
-        //   set({ products: result });
-        // },
-
         filterProducts: (category) => {
             set({ selectedCategory: category });
         },
