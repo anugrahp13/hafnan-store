@@ -1,8 +1,10 @@
-# React + Vite
+# Hafnan Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech stack
+<ul>
+  <li>React JS as a library</li>
+  <li>Tailwind CSS as a styling framework</li>
+  <li>Zustand for state management</li>
+  <li>Supported by <a href="https://fakestoreapi.com/" target="_blank"> Fakestore API </a></li>
+</ul>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
