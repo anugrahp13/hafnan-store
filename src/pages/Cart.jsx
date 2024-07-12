@@ -20,103 +20,101 @@ export const Cart = () => {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto px-4 py-4">
-        <div className="flex flex-col justify-between">
-          <div className="flex flex-col gap-3">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold mb-4">Keranjang</h2>
-              <p
-                onClick={store.clearCart}
-                className="text-green-600 hover:text-red-600 cursor-pointer transition-all duration-500 text-end"
-              >
-                Clear Cart
-              </p>
+      <div className="max-w-3xl mx-auto px-4 grid gap-2">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold mb-4">Keranjang</h2>
+          <Button
+            onClick={store.clearCart}
+            style="text-base font-normal hover:bg-green-600 text-slate-800 hover:text-white"
+          >
+            Clear Cart
+          </Button>
+        </div>
+        <div className="border rounded-xl px-4 h-[60vh] overflow-y-auto">
+          {store.cart.length === 0 ? (
+            <div className="flex h-full items-center justify-center">
+              <BelumBelanja />
             </div>
-            <div className="border rounded-xl px-4 h-[60vh] overflow-y-auto">
-              {store.cart.length === 0 ? (
-                <div className="flex h-full items-center justify-center">
-                  <BelumBelanja />
-                </div>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  {products.map((product) => (
-                    <div
-                      key={product.id}
-                      className="flex gap-6 py-2 px-2 border"
-                    >
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="w-20 h-20 object-contain"
-                      />
-                      <div className="flex flex-col gap-1 w-full">
-                        <LinesEllipsis
-                          text={product.title}
-                          maxLine="2"
-                          ellipsis=" ... "
-                          trimRight
-                          basedOn="words"
-                          className="text-[14px] tracking-tight text-gray-600"
-                        />
-                        <p className="text-[14px] font-bold">
-                          $ {(product.price * product.number).toFixed(2)}
-                        </p>
-                        <div className="flex justify-between">
-                          <div className="flex gap-1 items-center text-xs tracking-tight">
-                            <span className="flex gap-1">
-                              <img src={star} alt="" />
-                              {product.rating.rate}
-                            </span>
-                            <span>|</span>
-                            <span>{product.rating.count}+ terjual</span>
-                          </div>
-                          <div className="flex items-center border rounded-md">
-                            {product.number === 1 ? (
-                              <button
-                                onClick={() =>
-                                  store.removeProductFromCart(product)
-                                }
-                                className="px-2 py-1 border-e"
-                              >
-                                <Icon
-                                  path={mdiTrashCanOutline}
-                                  title="User Profile"
-                                  size={0.7}
-                                  color="gray"
-                                />
-                              </button>
-                            ) : (
-                              <button
-                                onClick={() =>
-                                  store.decrementProductNumber(product)
-                                }
-                                className="px-2 py-1 border-e"
-                              >
-                                -
-                              </button>
-                            )}
-                            <p className="px-2 text-xs">{product.number}</p>
-                            <button
-                              onClick={() =>
-                                store.incrementProductNumber(product)
-                              }
-                              className="px-2 py-1 border-s"
-                            >
-                              +
-                            </button>
-                          </div>
-                        </div>
+          ) : (
+            <div className="flex flex-col gap-2">
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex gap-6 py-2 px-2 border"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-20 h-20 object-contain"
+                  />
+                  <div className="flex flex-col gap-1 w-full">
+                    <LinesEllipsis
+                      text={product.title}
+                      maxLine="2"
+                      ellipsis=" ... "
+                      trimRight
+                      basedOn="words"
+                      className="text-[14px] tracking-tight text-gray-600"
+                    />
+                    <p className="text-[14px] font-bold">
+                      $ {(product.price * product.number).toFixed(2)}
+                    </p>
+                    <div className="flex justify-between">
+                      <div className="flex gap-1 items-center text-xs tracking-tight">
+                        <span className="flex gap-1">
+                          <img src={star} alt="" />
+                          {product.rating.rate}
+                        </span>
+                        <span>|</span>
+                        <span>{product.rating.count}+ terjual</span>
+                      </div>
+                      <div className="flex items-center border rounded-md">
+                        {product.number === 1 ? (
+                          <button
+                            onClick={() =>
+                              store.removeProductFromCart(product)
+                            }
+                            className="px-2 py-1 border-e"
+                          >
+                            <Icon
+                              path={mdiTrashCanOutline}
+                              title="User Profile"
+                              size={0.7}
+                              color="gray"
+                            />
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() =>
+                              store.decrementProductNumber(product)
+                            }
+                            className="px-2 py-1 border-e"
+                          >
+                            -
+                          </button>
+                        )}
+                        <p className="px-2 text-xs">{product.number}</p>
+                        <button
+                          onClick={() =>
+                            store.incrementProductNumber(product)
+                          }
+                          className="px-2 py-1 border-s"
+                        >
+                          +
+                        </button>
                       </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
-          </div>
-          <div className="flex justify-between items-center mt-4">
+          )}
+        </div>
+        <div className="flex flex-col justify-between">
+          <div className="flex justify-between items-center">
             <div>
               <p>Total</p>
-              <p className="font-bold">${store.total}</p>
+              <p className="font-bold">$ {store.total}</p>
             </div>
             <div>
               <Button
@@ -127,7 +125,7 @@ export const Cart = () => {
                   }
                   navigate("/checkout");
                 }}
-                style="bg-green-600 text-white"
+                style="bg-green-600 text-white text-base font-normal"
               >
                 Checkout ({products.length})
               </Button>
