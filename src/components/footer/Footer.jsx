@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import receipt from "../../assets/icons/receipt.svg";
 import cart from "../../assets/icons/cart.svg";
 import favorite from "../../assets/icons/favorite.svg";
-import tokopaedi from "../../assets/icons/tokopaedi.png";
 import envelope from "../../assets/icons/envelope.svg";
 import useStore from "../../stores/store";
 
