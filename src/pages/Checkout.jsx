@@ -71,8 +71,8 @@ export const Checkout = () => {
                 <img src={bca_icon} alt="bank_bca" />
                 <div>
                   <p>Bank Central Asia</p>
-                  <p>2208 4666</p>
-                  <p>PT. Tokopaedi Indonesia</p>
+                  <p>3543132867</p>
+                  <p>PT. HafnanStore Indonesia</p>
                 </div>
               </div>
               <div className="my-4">
